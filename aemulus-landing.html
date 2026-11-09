@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aemulus IT — сайты, приложения и CRM под ключ</title>
+<meta name="description" content="Разработка сайтов, приложений и внедрение CRM под ключ. Один подрядчик на весь контур: заявка с сайта доходит до менеджера, а не теряется между сервисами.">
+<link rel="canonical" href="https://aemulusit.it.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aemulusit.it.com/">
+<meta property="og:title" content="Aemulus IT — сайты, приложения и CRM под ключ">
+<meta property="og:description" content="Один подрядчик на весь контур: сайт, приложение и CRM, собранные в одну работающую систему.">
+<meta property="og:locale" content="ru_RU">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101520'/%3E%3Cpath d='M9 22 16 10l7 12' stroke='%231F3FD8' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 18h8' stroke='%23F3F4F6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<style>
+:root{
+  --paper:#F3F4F6;
+  --surface:#FFFFFF;
+  --ink:#101520;
+  --muted:#5D6675;
+  --line:#DCE0E7;
+  --wire:#1F3FD8;
+
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --gut:clamp(1.25rem,5vw,2.5rem);
+  --maxw:72rem;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:clamp(1rem,.95rem + .25vw,1.0625rem);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.022em;font-weight:600}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--wire);outline-offset:3px;border-radius:2px}
+
+.shell{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.masthead__row{display:flex;align-items:center;gap:1rem;height:4rem}
+.wordmark{
+  display:flex;align-items:baseline;gap:.45rem;
+  font-weight:700;font-size:1.0625rem;letter-spacing:-.02em;text-decoration:none;
+}
+.wordmark span{font-family:var(--mono);font-weight:400;font-size:.8125rem;color:var(--muted);letter-spacing:0}
+.masthead .act{margin-left:auto}
+
+/* ---------- buttons ---------- */
+.act{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:.9375rem;font-weight:600;
+  padding:.6875rem 1.25rem;border-radius:7px;border:1px solid var(--wire);
+  background:var(--wire);color:#fff;text-decoration:none;cursor:pointer;
+  transition:background .14s ease,border-color .14s ease;
+}
+.act:hover{background:#1733B4;border-color:#1733B4}
+.act--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.act--ghost:hover{background:var(--surface);border-color:var(--ink)}
+.act--lg{padding:.875rem 1.625rem;font-size:1rem}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(3rem,7vw,5.5rem) clamp(3rem,6vw,4.5rem)}
+.hero__grid{display:grid;gap:clamp(2.5rem,5vw,4rem);align-items:center}
+@media(min-width:62rem){.hero__grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}}
+
+.hero h1{font-size:clamp(2rem,1.25rem + 3vw,3.125rem);max-width:22ch;text-wrap:balance}
+.hero__lede{margin-top:1.25rem;max-width:46ch;font-size:clamp(1.0625rem,1rem + .35vw,1.1875rem);color:var(--muted)}
+.hero__acts{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem}
+
+/* ---------- schematic ---------- */
+.schema{width:100%;height:auto;display:block}
+.schema .node{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.schema .node--hub{stroke:var(--ink);stroke-width:1.75}
+.schema .label{font-family:var(--sans);font-size:21px;font-weight:600;fill:var(--ink)}
+.schema .flowtag{font-family:var(--mono);font-size:15px;fill:var(--wire)}
+.schema .wire{fill:none;stroke:var(--wire);stroke-width:2;stroke-linecap:round}
+.schema .pin{fill:var(--wire)}
+
+@media (prefers-reduced-motion:no-preference){
+  .schema .wire{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw .9s cubic-bezier(.65,0,.35,1) forwards}
+  .schema .w2{animation-delay:.18s}
+  .schema .pin{opacity:0;animation:pop .3s ease forwards .95s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{to{opacity:1}}
+}
+
+/* ---------- section frame ---------- */
+.band{padding-block:clamp(3.5rem,7vw,5.5rem);border-top:1px solid var(--line)}
+.band--surface{background:var(--surface)}
+.band__head{max-width:40ch;margin-bottom:clamp(2rem,4vw,3rem)}
+.band__head h2{font-size:clamp(1.5rem,1.2rem + 1.5vw,2.125rem)}
+.band__head p{margin-top:.875rem;color:var(--muted)}
+
+/* ---------- services : deliberately NOT a uniform card grid ---------- */
+.svc{display:grid;gap:0}
+.svc__item{
+  display:grid;gap:.5rem 2.5rem;
+  padding-block:clamp(1.75rem,3.5vw,2.5rem);
+  border-top:1px solid var(--line);
+}
+.svc__item:first-child{border-top:0;padding-top:0}
+@media(min-width:48rem){
+  .svc__item{grid-template-columns:minmax(0,15rem) minmax(0,1fr)}
+}
+.svc__name{font-size:1.25rem;font-weight:600}
+.svc__body p{color:var(--muted);max-width:60ch}
+.svc__tags{display:flex;flex-wrap:wrap;gap:.4375rem;margin-top:1rem;padding:0;list-style:none}
+.svc__tags li{
+  font-family:var(--mono);font-size:.75rem;color:var(--muted);
+  border:1px solid var(--line);border-radius:5px;padding:.25rem .5rem;background:var(--paper);
+}
+.band--surface .svc__tags li{background:var(--paper)}
+
+/* ---------- process : a real sequence, so it is numbered ---------- */
+.flow{display:grid;gap:clamp(1.5rem,3vw,2rem);counter-reset:step}
+@media(min-width:48rem){.flow{grid-template-columns:repeat(4,1fr);gap:clamp(1.5rem,2.5vw,2rem)}}
+.flow__step{padding-top:1.125rem;border-top:2px solid var(--ink);counter-increment:step}
+.flow__step::before{
+  content:counter(step,decimal-leading-zero);
+  display:block;font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-bottom:.625rem;
+}
+.flow__step h3{font-size:1.0625rem;margin-bottom:.4375rem}
+.flow__step p{color:var(--muted);font-size:.9375rem}
+
+/* ---------- promises ---------- */
+.keep{display:grid;gap:clamp(1.75rem,3.5vw,2.75rem)}
+@media(min-width:52rem){.keep{grid-template-columns:repeat(3,1fr)}}
+.keep__item h3{font-size:1.0625rem;margin-bottom:.5rem}
+.keep__item p{color:var(--muted);font-size:.9375rem;max-width:40ch}
+.keep__rule{width:2.25rem;height:2px;background:var(--wire);margin-bottom:1rem}
+
+/* ---------- contact ---------- */
+.contact{display:grid;gap:clamp(2rem,4vw,3rem);align-items:start}
+@media(min-width:52rem){.contact{grid-template-columns:minmax(0,1fr) minmax(0,auto)}}
+.contact h2{font-size:clamp(1.625rem,1.2rem + 1.8vw,2.375rem);max-width:17ch}
+.contact p{margin-top:1rem;color:var(--muted);max-width:44ch}
+.reach{list-style:none;margin:0;padding:0;display:grid;gap:.75rem;min-width:min(100%,17rem)}
+.reach a{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.8125rem 1rem;background:var(--surface);
+  border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-weight:500;
+  transition:border-color .14s ease;
+}
+.reach a:hover{border-color:var(--ink)}
+.reach .v{font-family:var(--mono);font-size:.8125rem;color:var(--muted)}
+
+/* ---------- colophon ---------- */
+.colophon{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);font-size:.875rem}
+.colophon__row{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center}
+.colophon .right{margin-left:auto;font-family:var(--mono);font-size:.8125rem}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell masthead__row">
+    <a class="wordmark" href="/">aemulus<span>it</span></a>
+    <a class="act" href="#contact">Обсудить проект</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div>
+        <h1>Сайт, приложение и CRM, собранные в одну систему</h1>
+        <p class="hero__lede">
+          Чаще всего ломается не код, а стык между сервисами: форма отправилась,
+          а заявка до менеджера не дошла. Мы берём весь контур целиком — и отвечаем
+          за то, чтобы он работал.
+        </p>
+        <div class="hero__acts">
+          <a class="act act--lg" href="#contact">Обсудить проект</a>
+          <a class="act act--ghost act--lg" href="#services">Что мы делаем</a>
+        </div>
+      </div>
+
+      <div>
+        <svg class="schema" viewBox="0 0 520 330" role="img"
+             aria-label="Схема: сайт и приложение передают заявки в CRM, из CRM уходит ответ клиенту">
+          <!-- site -->
+          <rect class="node" x="8" y="30" width="178" height="72" rx="9"/>
+          <text class="label" x="30" y="73">Сайт</text>
+
+          <!-- app -->
+          <rect class="node" x="8" y="228" width="178" height="72" rx="9"/>
+          <text class="label" x="30" y="271">Приложение</text>
+
+          <!-- hub -->
+          <rect class="node node--hub" x="330" y="129" width="182" height="72" rx="9"/>
+          <text class="label" x="352" y="172">CRM</text>
+
+          <!-- both routes carry the same thing: a lead -->
+          <path class="wire w1" style="--len:320" d="M186 66 H214 Q236 66 236 94 V137 Q236 165 258 165 H330"/>
+          <path class="wire w2" style="--len:320" d="M186 264 H214 Q236 264 236 236 V193 Q236 165 258 165 H330"/>
+          <text class="flowtag" x="268" y="155">заявка</text>
+
+          <circle class="pin" cx="330" cy="165" r="4.5"/>
+          <circle class="pin" cx="186" cy="66"  r="4.5"/>
+          <circle class="pin" cx="186" cy="264" r="4.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--surface" id="services">
+    <div class="shell">
+      <div class="band__head">
+        <h2>Что мы делаем</h2>
+        <p>Можно взять одну часть, можно весь контур. Во втором случае стыки уже наша забота.</p>
+      </div>
+
+      <div class="svc">
+        <article class="svc__item">
+          <h3 class="svc__name">Сайты</h3>
+          <div class="svc__body">
+            <p>
+              Лендинги, корпоративные сайты и интернет-магазины. Webflow или код — выбираем
+              под задачу и под то, кто будет вести сайт дальше. Двуязычные версии, разметка
+              для поиска, формы, подключённые к CRM с первого дня, а не «потом доделаем».
+            </p>
+            <ul class="svc__tags">
+              <li>Webflow</li><li>Next.js</li><li>многоязычность</li><li>SEO-разметка</li><li>аналитика</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svc__item">
+          <h3 class="svc__name">Приложения</h3>
+          <div class="svc__body">
+            <p>
+              Мобильные и веб-приложения: от рабочего MVP до продукта с авторизацией,
+              платежами, пуш-уведомлениями и админкой. Один backend на приложение и сайт,
+              чтобы данные не расходились.
+            </p>
+            <ul class="svc__tags">
+              <li>React Native</li><li>Flutter</li><li>REST / API</li><li>платежи</li><li>админ-панель</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svc__item">
+          <h3 class="svc__name">CRM и автоматизация</h3>
+          <div class="svc__body">
+            <p>
+              Внедряем и настраиваем amoCRM и Bitrix24: воронки, этапы, права доступа,
+              интеграции с WhatsApp и Telegram, отчётность для руководителя. Если готовая
+              система не подходит — делаем свою.
+            </p>
+            <ul class="svc__tags">
+              <li>amoCRM</li><li>Bitrix24</li><li>WhatsApp</li><li>Telegram</li><li>сквозная аналитика</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="band__head">
+        <h2>Как идёт работа</h2>
+        <p>Четыре шага. На втором вы уже знаете точную цену и срок.</p>
+      </div>
+
+      <div class="flow">
+        <div class="flow__step">
+          <h3>Разбор задачи</h3>
+          <p>Что должно работать и по каким цифрам поймём, что сработало.</p>
+        </div>
+        <div class="flow__step">
+          <h3>Смета и сроки</h3>
+          <p>Фиксируем объём, цену и дату. Без «уточним в процессе».</p>
+        </div>
+        <div class="flow__step">
+          <h3>Разработка</h3>
+          <p>Показываем промежуточный результат каждую неделю, а не исчезаем на месяц.</p>
+        </div>
+        <div class="flow__step">
+          <h3>Запуск и поддержка</h3>
+          <p>Передаём доступы, настраиваем аналитику и остаёмся на связи.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--surface">
+    <div class="shell">
+      <div class="band__head">
+        <h2>Что вы получаете, кроме файлов</h2>
+      </div>
+
+      <div class="keep">
+        <div class="keep__item">
+          <div class="keep__rule"></div>
+          <h3>Разговор с тем, кто пишет код</h3>
+          <p>Без аккаунт-менеджера посередине. Вопрос по задаче — ответ по задаче.</p>
+        </div>
+        <div class="keep__item">
+          <div class="keep__rule"></div>
+          <h3>Заявки, которые доходят</h3>
+          <p>Формы, CRM и аналитика настраиваются вместе и проверяются сквозным тестом до запуска.</p>
+        </div>
+        <div class="keep__item">
+          <div class="keep__rule"></div>
+          <h3>Доступы остаются у вас</h3>
+          <p>Репозиторий, домен, хостинг и CRM оформлены на вас. Уйти к другому подрядчику можно в любой момент.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contact">
+    <div class="shell contact">
+      <div>
+        <h2>Расскажите, что нужно построить</h2>
+        <p>
+          Напишите пару строк о задаче — ответим в тот же рабочий день и скажем,
+          сколько это займёт и будет стоить.
+        </p>
+      </div>
+
+      <ul class="reach">
+        <li><a href="mailto:hello@aemulusit.it.com">Почта <span class="v">hello@aemulusit.it.com</span></a></li>
+        <li><a href="https://t.me/ЗАМЕНИТЬ" target="_blank" rel="noopener">Telegram <span class="v">@ЗАМЕНИТЬ</span></a></li>
+        <li><a href="https://wa.me/971XXXXXXXXX" target="_blank" rel="noopener">WhatsApp <span class="v">+971 XX XXX XXXX</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="shell colophon__row">
+    <span>Aemulus IT — разработка сайтов, приложений и CRM</span>
+    <span class="right">aemulusit.it.com</span>
+  </div>
+</footer>
+
+</body>
+</html>
